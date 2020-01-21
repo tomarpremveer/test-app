@@ -2,10 +2,14 @@ let express = require("express")
 let mongodb=require('mongodb')
 
 let db
+let port =process.env.PORT
+if (port==null || port==""){
+  port=3000
+}
 let connectionString="mongodb+srv://todoapp:8268@cluster0-ygbdi.mongodb.net/todoapp?retryWrites=true&w=majority"
 mongodb.connect(connectionString,{useUnifiedTopology:true},function(err,client){
   db=client.db()
-  ourApp.listen(3000)
+  ourApp.listen(port)
 })
 let sanitizeHTML=require('sanitize-html')
 let ourApp=express()
