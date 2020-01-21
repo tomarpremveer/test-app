@@ -16,7 +16,7 @@ let ourApp=express()
 ourApp.use(express.static("public"))
 ourApp.use(express.urlencoded({extended:false}))
 ourApp.use(express.json())
-ourApp.use(passwordProtected)
+//ourApp.use(passwordProtected)
 function passwordProtected(req,res,next){
   res.set('WWW-Authenticate','Basic realm="Simple ToDo App"')
   if (req.headers.authorization=="Basic bW9udHk6aGZnYmhkYmdmZg=="){
